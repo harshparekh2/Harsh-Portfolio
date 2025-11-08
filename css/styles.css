@@ -111,40 +111,48 @@ h6 {
   background: rgba(6, 182, 212, 0.1);
 }
 
+.spline-logo-cover {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 120px;
+  height: 40px;
+  background: #0b1220; /* match your hero section bg color */
+  border-radius: 10px;
+  z-index: 3;
+  background: linear-gradient(180deg, #0b1220, #1e293b);
+
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+  .spline-logo-cover {
+    width: 80px;
+    height: 25px;
+  }
+}
+
+
+
 /* Hero Section */
 .hero-section {
-  background: var(--gradient);
-  color: rgb(254, 254, 254);
   position: relative;
   overflow: hidden;
   min-height: 100vh;
 }
 
-.hero-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="%232563eb" opacity="0.08"><animate attributeName="r" values="1;2;1" dur="2s" repeatCount="indefinite"/></circle></svg>')
-    repeat;
-  animation: float 20s linear infinite;
-  z-index: 1;
-}
-
-#hero-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  display: block !important;
-  opacity: 1;
-  pointer-events: none;
+spline-viewer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
 }
+
 
 @keyframes float {
   0% {
@@ -186,8 +194,9 @@ h6 {
 }
 
 .hero-subtitle {
+  font-family: 'Pacifico', cursive;
   font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(68, 68, 68, 0.8);
   max-width: 600px;
   line-height: 1.6;
   text-align: justify;
@@ -265,8 +274,8 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.8);
   border-radius: 50%;
   text-decoration: none;
   font-size: 1.2rem;
@@ -403,12 +412,14 @@ h6 {
 
 /* About Section */
 .about-content h3 {
+  font-family: 'Uncial Antiqua', serif;
   font-size: 2rem;
   color: var(--dark-color);
   margin-bottom: 1.5rem;
 }
 
 .about-content p {
+  font-family: 'Pacifico', cursive;
   font-size: 1.1rem;
   line-height: 1.8;
   color: var(--text-color);
