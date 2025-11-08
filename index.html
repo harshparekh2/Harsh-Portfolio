@@ -683,30 +683,3 @@
     <script src="js/script.js"></script>
 </body>
 </html>
-
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const splineViewer = document.querySelector("spline-viewer");
-    
-      // Only apply when Spline exists
-      if (!splineViewer) return;
-    
-      // Reduce internal rendering load for smoother performance
-      splineViewer.style.pointerEvents = "none"; // disables hit-testing, improves GPU use
-      splineViewer.style.willChange = "transform";
-      splineViewer.style.transform = "translateZ(0)"; // ensures GPU acceleration
-    
-      // Stop rerendering when user scrolls away (huge mobile boost)
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) {
-            splineViewer.pause && splineViewer.pause(); // new API in Spline web viewer
-          } else {
-            splineViewer.play && splineViewer.play();
-          }
-        });
-      });
-      observer.observe(splineViewer);
-    });
-    </script>
-    
